@@ -4,7 +4,7 @@ This monorepository contains all source code for Graduation work.
 
 ## Backend services
 
-### Technologies stack
+### Technological stack
 
 - Node.js
 - Typescript
@@ -18,7 +18,7 @@ This monorepository contains all source code for Graduation work.
 
 ## Frontend services
 
-### Technologies stack
+### Technological stack
 
 - Typescript
 - React
