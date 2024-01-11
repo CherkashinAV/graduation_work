@@ -1,3 +1,6 @@
 [submodule "passport"]
 	path = passport
 	url = https://github.com/CherkashinAV/passport
+[submodule "api-gateway"]
+	path = api-gateway
+	url = https://github.com/CherkashinAV/api-gateway
