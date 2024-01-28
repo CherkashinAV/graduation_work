@@ -4,3 +4,6 @@
 [submodule "api-gateway"]
 	path = api-gateway
 	url = https://github.com/CherkashinAV/api-gateway
+[submodule "sender"]
+	path = sender
+	url = https://github.com/CherkashinAV/sender
