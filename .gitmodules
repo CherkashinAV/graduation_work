@@ -7,3 +7,6 @@
 [submodule "sender"]
 	path = sender
 	url = https://github.com/CherkashinAV/sender
+[submodule "themes"]
+	path = themes
+	url = https://github.com/CherkashinAV/themes

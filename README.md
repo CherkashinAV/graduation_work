@@ -16,6 +16,7 @@ This monorepository contains all source code for Graduation work.
 
 - __passport__ - service for users authorization
 - __sender__ - service for email distribution
+- __themes__ - main service with themes choosing logic
 - __api-gateway__ - reverse proxy for routing requests to other microservices
 
 ## Frontend services
