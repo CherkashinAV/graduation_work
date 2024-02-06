@@ -21,6 +21,8 @@ This monorepository contains all source code for Graduation work.
 
 ## Frontend services
 
+- __themes-ui__ - UI for main service with themes choosing
+
 ### Technological stack
 
 - Typescript

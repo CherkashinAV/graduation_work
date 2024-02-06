@@ -10,3 +10,6 @@
 [submodule "themes"]
 	path = themes
 	url = https://github.com/CherkashinAV/themes
+[submodule "themes-ui"]
+	path = themes-ui
+	url = https://github.com/CherkashinAV/themes-ui
