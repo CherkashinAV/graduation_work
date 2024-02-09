@@ -1,0 +1,92 @@
+services:
+  passport:
+    build: ./passport
+    ports: 
+      - "8083:8083"
+    env_file:
+      - ./passport/.env
+    environment:
+      - DOCKER=true
+    depends_on:
+      - passport-db
+    extra_hosts:
+    - "host.docker.internal:host-gateway"
+
+  passport-db:
+    build: ./passport/.dev/database/
+    env_file:
+      - ./passport/.dev/database/local.env
+    ports:
+      - "2000:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U passport-user -d passport"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+
+  sender:
+    build: ./sender
+    ports:
+      - "8082:8082"
+    env_file:
+      - ./sender/.env
+    environment:
+      - DOCKER=true
+    depends_on:
+      - sender-db
+    extra_hosts:
+    - "host.docker.internal:host-gateway"
+  
+  sender-db:
+    build: ./sender/.dev/database/
+    env_file:
+      - ./sender/.dev/database/local.env
+    ports:
+      - "2001:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sender-user -d sender"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+
+  themes:
+    build: ./themes
+    ports:
+      - "8081:8081"
+    env_file:
+      - ./themes/.env
+    environment:
+      - DOCKER=true
+    depends_on:
+      - themes-db
+    extra_hosts:
+    - "host.docker.internal:host-gateway"
+    
+  themes-db:
+    build: ./themes/.dev/database/
+    env_file:
+      - ./themes/.dev/database/local.env
+    ports:
+      - "2002:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U themes-user -d themes"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+
+  api-gateway:
+    build: ./api-gateway
+    ports:
+      - "8080:8080"
+    env_file:
+      - ./api-gateway/.env
+    environment:
+      - DOCKER=true
+    extra_hosts:
+    - "host.docker.internal:host-gateway"
